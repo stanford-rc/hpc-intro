@@ -17,36 +17,61 @@ keypoints:
 - "The standard method of interacting with such systems is via a command line
   interface."
 ---
+<br>
 
 Frequently, research problems that use computing can outgrow the capabilities
 of the desktop or laptop computer where they started:
 
-* A statistics student wants to cross-validate a model. This involves running
-  the model 1000 times -- but each run takes an hour. Running the model on
-  a laptop will take over a month! In this research problem, final results are
-  calculated after all 1000 models have run, but typically only one model is
-  run at a time (in __serial__) on the laptop. Since each of the 1000 runs is
-  independent of all others, and given enough computers, it's theoretically
-  possible to run them all at once (in __parallel__).
-* A genomics researcher has been using small datasets of sequence data, but
-  soon will be receiving a new type of sequencing data that is 10 times as
-  large. It's already challenging to open the datasets on a computer --
-  analyzing these larger datasets will probably crash it. In this research
-  problem, the calculations required might be impossible to parallelize, but a
-  computer with __more memory__ would be required to analyze the much larger
-  future data set.
-* An engineer is using a fluid dynamics package that has an option to run in
-  parallel. So far, this option was not used on a desktop. In going from 2D
-  to 3D simulations, the simulation time has more than tripled. It might be
-  useful to take advantage of that option or feature. In this research problem,
-  the calculations in each region of the simulation are largely independent of
-  calculations in other regions of the simulation. It's possible to run each
-  region's calculations simultaneously (in __parallel__), communicate selected
-  results to adjacent regions as needed, and repeat the calculations to
-  converge on a final set of results. In moving from a 2D to a 3D model, __both
-  the amount of data and the amount of calculations increases greatly__, and
-  it's theoretically possible to distribute the calculations across multiple
-  computers communicating over a shared network.
+</br>
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="/hpc-intro/fig/dna-solid.svg" width="30%" height="30%" alt="icon of strand of DNA">
+      <div class="caption">
+        <h3>Genomics</h3>
+        <p>A genomics researcher has been using small datasets of sequence data,
+           but soon will be receiving a new type of sequencing data that is 10
+           times as large. It's already challenging to open the datasets on a
+           computer -- analyzing these larger datasets will probably crash it. In
+           this research problem, the calculations required might be impossible to
+           parallelize, but a computer with <b>more memory</b> would be required to
+           analyze the much larger future data set.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="/hpc-intro/fig/cubes-solid.svg" width="38%" height="38%" alt="icon of three cubes stacked on top of each other">
+      <div class="caption">
+        <h3>Engineering</h3>
+        <p>An engineer is using a fluid dynamics package that has an option to
+           run in parallel. In this research problem, the calculations in each
+           region of the simulation are largely independent of calculations in
+           other regions of the simulation. It's possible to run each region's
+           calculations simultaneously (in <b>parallel</b>), communicate selected
+           results to adjacent regions as needed, and repeat the calculations to
+           converge on a final set of results.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="/hpc-intro/fig/book-open-solid.svg" width="38%" height="38%" alt="icon of an open book">
+      <div class="caption">
+        <h3>Humanities</h3>
+        <p>A graduate student is using a named entity recognizer to identify named
+        entities (important people, places, and things) in the works of Ralph Waldo
+        Emerson. In this research problem, each of Emerson's works are independent
+        of each and can be analyzed simultaneously in <b>parallel</b>. Results from
+        this retrieval task can be aggregated for higher level analyses such as
+        knowledge graphing, mapping references, or social network analysis.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 In all these cases, access to more (and larger) computers is needed. Those
 computers should be usable at the same time, __solving many researchers'
