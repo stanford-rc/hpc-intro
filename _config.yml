@@ -122,7 +122,7 @@ start_time: 0
 repository: <USERNAME>/<PROJECT>
 
 # Invoke the Carpentries theme rather than copying into our repository.
-remote_theme: carpentries/carpentries-theme
+remote_theme: cagancayco/carpentries-theme
 
 # Sites.
 amy_site: "https://amy.carpentries.org/"
