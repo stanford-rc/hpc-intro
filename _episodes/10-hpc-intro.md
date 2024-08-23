@@ -22,7 +22,7 @@ keypoints:
 Frequently, research problems that use computing can outgrow the capabilities
 of the desktop or laptop computer where they started:
 
-</br>
+<br>
 
 <div class="row">
   <div class="col-sm-6 col-md-4">
