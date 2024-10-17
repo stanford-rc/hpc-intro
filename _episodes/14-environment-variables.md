@@ -46,15 +46,14 @@ $ set
 {: .language-bash}
 
 ~~~
-COMPUTERNAME=TURING
-HOME=/home/vlad
-HOSTNAME=TURING
-HOSTTYPE=i686
-NUMBER_OF_PROCESSORS=4
-PATH=/Users/vlad/bin:/usr/local/git/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
-PWD=/home/vlad
-UID=1000
-USERNAME=vlad
+BASH=/bin/bash
+BASHOPTS=checkwinsize:cmdhist:complete_fullquote:expand_aliases:extglob:extquote:force_fignore:globasciiranges:histappend:interactive_comments:login_shell:progcomp:promptvars:sourcepath
+BASH_ALIASES=()
+BASH_ARGC=([0]="0")
+BASH_ARGV=()
+BASH_CMDS=()
+BASH_COMPLETION_VERSINFO=([0]="2" [1]="11")
+BASH_ENV=/software/spack/opt/spack/linux-ubuntu22.04-x86_64_v3/gcc-12.3.0/lmod-8.7.24-zo2r3he7kqr2ohenyvha5mmsxh7t3x54/lmod/lmod/init/bash
 ...
 ~~~
 {: .output}
@@ -97,7 +96,7 @@ $ echo $HOME
 {: .language-bash}
 
 ~~~
-/home/vlad
+/home/users/SUNetID
 ~~~
 {: .output}
 
@@ -222,27 +221,31 @@ To show how this works,
 here are the components of `PATH` listed one per line:
 
 ~~~
-/Users/vlad/bin
-/usr/local/git/bin
-/usr/bin
-/bin
-/usr/sbin
-/sbin
+/home/users/SUNetID/bin
+/home/users/SUNetID/.local/bin
+/usr/local/sbin
 /usr/local/bin
+/usr/sbin
+/usr/bin
+/sbin
+/bin
+/usr/games
+/usr/local/games
+/snap/bin
 ~~~
 {: .output}
 
 On our computer,
 there are actually three programs called `analyze`
 in three different directories:
-`/bin/analyze`,
+`/home/users/SUNetID/bin/analyze`,
 `/usr/local/bin/analyze`,
-and `/users/vlad/analyze`.
+and `/bin/analyze`.
 Since the shell searches the directories in the order they're listed in `PATH`,
-it finds `/bin/analyze` first and runs that.
-Notice that it will *never* find the program `/users/vlad/analyze`
+it finds `/home/users/SUNetID/bin/analyze` first and runs that.
+Notice that it will *never* find the program `/scratch/users/SUNetID/analyze`
 unless we type in the full path to the program,
-since the directory `/users/vlad` isn't in `PATH`.
+since the directory `/scratch/users/SUNetID` isn't in `PATH`.
 
 This means that I can have executables in lots of different places as long as
 I remember that I need to to update my `PATH` so that my shell can find them.

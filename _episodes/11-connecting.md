@@ -19,14 +19,13 @@ keypoints:
 ## Secure Connections
 
 The first step in using a cluster is to establish a connection from our laptop
-to the cluster. When we are sitting at a computer (or standing, or holding it
-in our hands or on our wrists), we have come to expect a visual display with
-icons, widgets, and perhaps some windows or applications: a _graphical user
-interface_, or GUI. Since computer clusters are remote resources that we
-connect to over slow or intermittent interfaces (WiFi and VPNs especially), it
-is more practical to use a _command-line interface_, or CLI, to send commands
-as plain-text. If a command returns output, it is printed as plain text as
-well. The commands we run today will not open a window to show graphical
+to the cluster. When we are sitting at a computer, we have come to expect a
+visual display with icons, widgets, and perhaps some windows or applications:
+a _graphical userinterface_, or GUI. Since computer clusters are remote resources
+that we connect to over slow or intermittent interfaces (WiFi and VPNs
+especially), it is more practical to use a _command-line interface_, or CLI, to
+send commands as plain-text. If a command returns output, it is printed as plain
+text as well. The commands we run today will not open a window to show graphical
 results.
 
 If you have ever opened the Windows Command Prompt or macOS Terminal, you have
@@ -53,17 +52,9 @@ email address: the "@" symbol is used to separate the personal ID from the
 address of the remote machine.
 
 When logging in to a laptop, tablet, or other personal device, a username,
-password, or pattern are normally required to prevent unauthorized access. In
-these situations, the likelihood of somebody else intercepting your password is
-low, since logging your keystrokes requires a malicious exploit or physical
-access. For systems like {{ site.remote.host }} running an SSH server, anybody
-on the network can log in, or try to. Since usernames are often public or easy
-to guess, your password is often the weakest link in the security chain. Many
-clusters therefore forbid password-based login, requiring instead that you
-generate and configure a public-private key pair with a much stronger password.
-Even if your cluster does not require it, the next section will guide you
-through the use of SSH keys and an SSH agent to both strengthen your security
-_and_ make it more convenient to log in to remote systems.
+password, or pattern are normally required to prevent unauthorized access.
+In addition to your Stanford password, you will be required to use Duo Two-Factor
+Authentication.
 
 ## Log In to the Cluster
 
@@ -136,7 +127,7 @@ Great, we know where we are! Let's see what's in our current directory:
 ```
 {: .language-bash}
 ```
-id_ed25519.pub
+  afs-home    go
 ```
 {: .output}
 
@@ -150,8 +141,8 @@ double-check, include hidden files in your directory listing:
 ```
 {: .language-bash}
 ```
-  .            .bashrc           id_ed25519.pub
-  ..           .ssh
+  .            .bashrc           afs-home
+  ..           .ssh              go
 ```
 {: .output}
 

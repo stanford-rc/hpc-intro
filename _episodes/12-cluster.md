@@ -73,9 +73,10 @@ devices are anchored to the "root" directory, which is `/`:
 ```
 {: .language-bash}
 ```
-bin   etc   lib64  proc  sbin     sys  var
-boot  {{ site.remote.homedir | replace: "/", "" }}  mnt    root  scratch  tmp  working
-dev   lib   opt    run   srv      usr
+afs   etc         lib32     lost+found  proc     sbin       srv        usr
+bin   farmshare   lib64     media       root     scratch    swap.img   var
+boot  {{ site.remote.homedir | replace: "/", "" }}        mnt       root        snap     tmp        sys
+dev   lib         libx32    opt         run      software   tmp
 ```
 {: .output}
 
@@ -89,18 +90,12 @@ system files and change as you install new software or upgrade your OS.
 > These differ in both the amount of space allocated and whether or not they
 > are backed up.
 >
-> * __Home__ -- often a _network filesystem_, data stored here is available
+> * __Home__ (`$HOME`)-- often a _network filesystem_, data stored here is available
 >   throughout the HPC system, and often backed up periodically. Files stored
 >   here are typically slower to access, the data is actually stored on another
 >   computer and is being transmitted and made available over the network!
-> * __Scratch__ -- typically faster than the networked Home directory, but not
+> * __Scratch__ (`$SCRATCH`)-- typically faster than the networked Home directory, but not
 >   usually backed up, and should not be used for long term storage.
-> * __Work__ -- sometimes provided as an alternative to Scratch space, Work is
->   a fast file system accessed over the network. Typically, this will have
->   higher performance than your home directory, but lower performance than
->   Scratch; it may not be backed up. It differs from Scratch space in that
->   files in a work file system are not automatically deleted for you: you must
->   manage the space yourself.
 {: .callout}
 
 ## Nodes
@@ -131,18 +126,17 @@ This may show only your user ID, but there are likely several other people
 
 > ## Dedicated Transfer Nodes
 >
-> If you want to transfer larger amounts of data to or from the cluster, some
-> systems offer dedicated nodes for data transfers only. The motivation for
+> If you want to transfer larger amounts of data to or from the cluster, SRC
+> offers dedicated nodes for data transfers only. The motivation for
 > this lies in the fact that larger data transfers should not obstruct
-> operation of the login node for anybody else. Check with your cluster's
-> documentation or its support team if such a transfer node is available. As a
-> rule of thumb, consider all transfers of a volume larger than 500 MB to 1 GB
-> as large. But these numbers change, e.g., depending on the network connection
-> of yourself and of your cluster or other factors.
+> operation of the login node for anybody else. As a rule of thumb, consider all
+> transfers of a volume larger than 500 MB to 1 GB as large. But these numbers
+> change, e.g., depending on the network connection of yourself and of your
+> cluster or other factors.
 {: .callout}
 
 The real work on a cluster gets done by the _compute_ (or _worker_) _nodes_.
-compute nodes come in many shapes and sizes, but generally are dedicated to long
+Compute nodes come in many shapes and sizes, but generally are dedicated to long
 or hard tasks that require a lot of computational resources.
 
 All interaction with the compute nodes is handled by a specialized piece of
@@ -208,20 +202,30 @@ connect to a shared, remote fileserver or cluster of servers.
 > >
 > > * Run system utilities
 > >   ```
+> >   # Linux
 > >   {{ site.local.prompt }} nproc --all
 > >   {{ site.local.prompt }} free -m
+> >
+> >   # MacOS
+> >   {{ site.local.prompt }} sysctl -n hw.ncpu
 > >   ```
 > >   {: .language-bash}
 > >
 > > * Read from `/proc`
 > >   ```
+> >   # Linux
 > >   {{ site.local.prompt }} cat /proc/cpuinfo
 > >   {{ site.local.prompt }} cat /proc/meminfo
+> >
+> >   # MacOS
+> >   {{ site.local.prompt }} sysctl -a | grep machdep.cpu
+> >   {{ site.local.prompt }} vm_stat
 > >   ```
 > >   {: .language-bash}
 > >
 > > * Run system monitor
 > >   ```
+> >   # Linux, and can be installed on MacOS
 > >   {{ site.local.prompt }} htop
 > >   ```
 > >   {: .language-bash}
@@ -246,6 +250,7 @@ connect to a shared, remote fileserver or cluster of servers.
 > >
 > > ```
 > > {{ site.remote.prompt }} less /proc/meminfo
+> > # Use "q" to exit
 > > ```
 > > {: .language-bash}
 > >

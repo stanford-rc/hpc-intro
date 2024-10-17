@@ -299,7 +299,7 @@ return of your command prompt indicates that the request to cancel the job was
 successful.
 
 ```
-{{ site.remote.prompt }} {{site.sched.del }} 38759
+{{ site.remote.prompt }} {{site.sched.del }} 277347
 # It might take a minute for the job to disappear from the queue...
 {{ site.remote.prompt }} {{ site.sched.status }} {{ site.sched.flag.user }}
 ```

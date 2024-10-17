@@ -1,0 +1,108 @@
+To demonstrate, let's use `module list`. `module list` shows all loaded
+software modules.
+
+```
+{{ site.remote.prompt }} module list
+```
+{: .language-bash}
+
+```
+Currently Loaded Modules:
+  1) glibc/2.35-hwm6jll          13) libxml2/2.10.3-pwcbmqy
+  2) gcc-runtime/13.2.0-4b46r64  14) pigz/2.8-gvcpolz
+  3) bzip2/1.0.8-4z7zft5         15) zstd/1.5.6-77bmnaj
+  4) libmd/1.0.4-zgn4nm3         16) tar/1.34-ddpzee5
+  5) libbsd/0.12.1-i7vok2f       17) gettext/0.22.5-yrjlrvv
+  6) expat/2.6.2-gugyyi4         18) libffi/3.4.6-3p64pum
+  7) ncurses/6.5-l7iqip2         19) libxcrypt/4.4.35-3ofajra
+  8) readline/8.2-yy655ut        20) openssl/3.3.0-4gl4yy3
+  9) gdbm/1.23-rtgm7sw           21) sqlite/3.43.2-4hpmcpr
+ 10) libiconv/1.17-agtuexj       22) util-linux-uuid/2.38.1-zaohlkc
+ 11) xz/5.4.6-x7ef77y            23) python/3.11.7
+ 12) zlib-ng/2.1.6-4xk6kiq
+```
+{: .output}
+
+```
+{{ site.remote.prompt }} module load julia
+{{ site.remote.prompt }} module list
+```
+{: .language-bash}
+
+```
+Currently Loaded Modules:
+  1) glibc/2.35-hwm6jll              27) curl/8.7.1-dilktws
+  2) gcc-runtime/13.2.0-4b46r64      28) dsfmt/2.2.5-yrb7poa
+  3) bzip2/1.0.8-4z7zft5             29) gmp/6.2.1-brxkiho
+  4) libmd/1.0.4-zgn4nm3             30) libblastrampoline/5.8.0-pajuz6u
+  5) libbsd/0.12.1-i7vok2f           31) pcre/8.45-bsep6cd
+  6) expat/2.6.2-gugyyi4             32) libgit2/1.6.4-6n6p7pm
+  7) ncurses/6.5-l7iqip2             33) libunwind/1.6.2-bzhjldn
+  8) readline/8.2-yy655ut            34) libuv-julia/1.44.3-mpcmz2j
+  9) gdbm/1.23-rtgm7sw               35) binutils/2.42-pyz2his
+ 10) libiconv/1.17-agtuexj           36) pkgconf/2.2.0-euy2z2u
+ 11) xz/5.4.6-x7ef77y                37) elfutils/0.190-r6vhdnt
+ 12) zlib-ng/2.1.6-4xk6kiq           38) libpciaccess/0.17-pfgymna
+ 13) libxml2/2.10.3-pwcbmqy          39) hwloc/2.9.1-smlej6r
+ 14) pigz/2.8-gvcpolz                40) libedit/3.1-20230828-ls2cusj
+ 15) zstd/1.5.6-77bmnaj              41) unzip/6.0-w3hyu2g
+ 16) tar/1.34-ddpzee5                42) lua/5.3.6-bshf2me
+ 17) gettext/0.22.5-yrjlrvv          43) swig/4.0.2-fortran-irv7aqc
+ 18) libffi/3.4.6-3p64pum            44) llvm/15.0.7-aibkinw
+ 19) libxcrypt/4.4.35-3ofajra        45) mpfr/4.2.1-bpff5zj
+ 20) openssl/3.3.0-4gl4yy3           46) openlibm/0.8.1-vk6saea
+ 21) sqlite/3.43.2-4hpmcpr           47) p7zip/17.05-gtsuz3k
+ 22) util-linux-uuid/2.38.1-zaohlkc  48) pcre2/10.43-lfijy3h
+ 23) python/3.11.7                   49) metis/5.1.0-jfogols
+ 24) mbedtls/2.28.2-7husfdf          50) suite-sparse/7.2.1-ybtegdu
+ 25) libssh2/1.11.0-z7hjcm2          51) utf8proc/2.8.0-ib2ggng
+ 26) nghttp2/1.52.0-zz56qrn          52) julia/1.10.2
+```
+{: .output}
+
+So in this case, loading the `julia` module (a high-level, high-performance
+dynamic programming language for numerical computing), also loaded many other
+dependencies as well. Let's try unloading the `julia` package.
+
+```
+{{ site.remote.prompt }} module unload julia
+{{ site.remote.prompt }} module list
+```
+{: .language-bash}
+
+```
+Currently Loaded Modules:
+  1) glibc/2.35-hwm6jll          13) libxml2/2.10.3-pwcbmqy
+  2) gcc-runtime/13.2.0-4b46r64  14) pigz/2.8-gvcpolz
+  3) bzip2/1.0.8-4z7zft5         15) zstd/1.5.6-77bmnaj
+  4) libmd/1.0.4-zgn4nm3         16) tar/1.34-ddpzee5
+  5) libbsd/0.12.1-i7vok2f       17) gettext/0.22.5-yrjlrvv
+  6) expat/2.6.2-gugyyi4         18) libffi/3.4.6-3p64pum
+  7) ncurses/6.5-l7iqip2         19) libxcrypt/4.4.35-3ofajra
+  8) readline/8.2-yy655ut        20) openssl/3.3.0-4gl4yy3
+  9) gdbm/1.23-rtgm7sw           21) sqlite/3.43.2-4hpmcpr
+ 10) libiconv/1.17-agtuexj       22) util-linux-uuid/2.38.1-zaohlkc
+ 11) xz/5.4.6-x7ef77y            23) python/3.11.7
+ 12) zlib-ng/2.1.6-4xk6kiq
+```
+{: .output}
+
+So using `module unload` "un-loads" a module, and depending on how a site is
+ configured it may also unload all of the dependencies (in our case it does).
+ If we wanted to unload everything at once, we could run `module purge`
+ (unloads everything).
+
+```
+{{ site.remote.prompt }} module purge
+{{ site.remote.prompt }} module list
+```
+{: .language-bash}
+
+```
+No modules loaded
+```
+{: .output}
+
+Note that `module purge` is informative. It will also let us know if a default
+set of "sticky" packages cannot be unloaded (and how to actually unload these
+if we truly so desired).

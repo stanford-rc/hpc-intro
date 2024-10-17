@@ -27,7 +27,7 @@ of the desktop or laptop computer where they started:
 <div class="row">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img src="/hpc-intro/fig/dna-solid.svg" width="30%" height="30%" alt="icon of strand of DNA">
+      <img src="/hpc-intro/fig/dna-solid.svg" width="30%" height="30%" alt="...">
       <div class="caption">
         <h3>Genomics</h3>
         <p>A genomics researcher has been using small datasets of sequence data,
@@ -43,23 +43,23 @@ of the desktop or laptop computer where they started:
 
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img src="/hpc-intro/fig/cubes-solid.svg" width="38%" height="38%" alt="icon of three cubes stacked on top of each other">
+      <img src="/hpc-intro/fig/cubes-solid.svg" width="38%" height="38%" alt="...">
       <div class="caption">
         <h3>Engineering</h3>
         <p>An engineer is using a fluid dynamics package that has an option to
-           run in parallel. In this research problem, the calculations in each
-           region of the simulation are largely independent of calculations in
-           other regions of the simulation. It's possible to run each region's
-           calculations simultaneously (in <b>parallel</b>), communicate selected
-           results to adjacent regions as needed, and repeat the calculations to
-           converge on a final set of results.</p>
+           run in parallel. In this research problem, the calculations in each region
+           of the simulation are largely independent of calculations in other regions
+           of the simulation. It's possible to run each region's calculations
+           simultaneously (in <b>parallel</b>), communicate selected results to
+           adjacent regions as needed, and repeat the calculations to converge on a
+           final set of results.</p>
       </div>
     </div>
   </div>
 
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img src="/hpc-intro/fig/book-open-solid.svg" width="38%" height="38%" alt="icon of an open book">
+      <img src="/hpc-intro/fig/book-open-solid.svg" width="38%" height="38%" alt="...">
       <div class="caption">
         <h3>Humanities</h3>
         <p>A graduate student is using a named entity recognizer to identify named
