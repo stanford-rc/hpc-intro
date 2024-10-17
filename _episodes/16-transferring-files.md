@@ -31,7 +31,6 @@ You can
 
 * `git clone https://github.com/stanford-rc/hpc-intro`
 
-
 ## Transferring Single Files with `scp`
 
 To copy a single file to or from the cluster, we can use `scp` ("secure copy").
@@ -102,7 +101,7 @@ completeness.
 With `scp`, a trailing slash on the target directory is optional, and has no effect.
 A trailing slash on a source directory is important for other commands, like `rsync`.
 
-##  Transferring Data with `rsync`
+## Transferring Data with `rsync`
 
 As you gain experience with transferring files, you may find the `scp`
 command limiting. The [rsync] utility provides
@@ -200,6 +199,7 @@ that represents your local machine.
 the transfer. Click the "Start" button over the left panel.
 
 > ## Transferring Data to Your Local Machine
+>
 > The above steps can also be used to transfer data from {{ site.remote.name }} to
 > your local machine. Simply select the files you want to transfer from
 > {{ site.remote.name }} and the desired destination on your local machine, and then
