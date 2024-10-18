@@ -227,12 +227,12 @@ There are two sets of buttons in the File Explorer.
 * Under the three vertical dots menu next to each filename:
 {% include figure.html url="" max-width="50%"
    file="/fig/file_explorer_btn1.png"
-   alt="Connect to cluster" caption="" %}
+   alt="OnDemand File Explorer buttons next to filename" caption="" %}
 Those buttons allow you to View, Edit, Rename, Download, or Delete a file.
 * At the top of the window, on the right side:
 {% include figure.html url="" max-width="50%"
    file="/fig/file_explorer_btn2.png"
-   alt="Connect to cluster" caption="" %}
+   alt="OnDemand File Explorer buttons in top right menu" caption="" %}
 
 | Button | Function |
 | ------ | -------- |

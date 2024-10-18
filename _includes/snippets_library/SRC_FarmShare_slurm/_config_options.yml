@@ -50,7 +50,7 @@ sched:
   interactive: "srun"
   info: "sinfo"
   comment: "#SBATCH"
-  hist: "sacct -u $USER"
+  hist: "sacct"
   hist_filter: ""
 
 episode_order:
