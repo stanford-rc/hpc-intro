@@ -84,9 +84,10 @@ episode_order:
   - 14-environment-variables
   - 15-modules
   - 16-transferring-files
-  - 17-parallel
-  - 18-resources
-  - 19-responsibility
+  - 17-ondemand
+  - 18-parallel
+  - 19-resources
+  - 20-responsibility
 
 #------------------------------------------------------------
 # Values for this lesson
