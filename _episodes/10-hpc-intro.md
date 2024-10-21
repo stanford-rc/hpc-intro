@@ -77,6 +77,10 @@ In all these cases, access to more (and larger) computers is needed. Those
 computers should be usable at the same time, __solving many researchers'
 problems in parallel__.
 
+{% include figure.html url="" max-width="100%"
+   file="/fig/parallel-processing.png"
+   alt="tips on parallelization" caption="" %}
+
 ## Jargon Busting Presentation
 
 Open the [HPC Jargon Buster]({{ site.url }}{{ site.baseurl }}/files/jargon.html#p1)
